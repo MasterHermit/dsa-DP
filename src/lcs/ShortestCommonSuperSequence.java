@@ -27,6 +27,34 @@ public class ShortestCommonSuperSequence {
                 }
             }
         }
+        String op="";
+        int i=n,j=m;
+        while(i>0&& j>0){
+            if(s1.charAt(i-1)==s2.charAt(j-1)){
+                op=s1.charAt(i-1)+op;
+                i--;
+                j--;
+
+            }else{
+                if(mat[i-1][j]>mat[i][j-1]){
+                    op=s1.charAt(i-1)+op;
+                    i--;
+                }else{
+                    op=s2.charAt(j-1)+op;
+                    j--;
+                }
+            }
+        }
+        while(i>0){
+            op=s1.charAt(i-1)+op;
+            i--;
+        }
+        while(j>0){
+            op=s2.charAt(j-1)+op;
+            j--;
+        }
+
+        System.out.println(op);
         return (n+m)-mat[n][m];
     }
 }
