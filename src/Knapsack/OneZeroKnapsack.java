@@ -11,8 +11,8 @@ static int knapsack(int n,int w,int[] weight,int[] value){
 	for(int i=0;i<n+1;i++)
 		for(int j=0;j<w+1;j++){
 			if(i==0||j==0)d[i][j]=0;
-			else if(weight[i-1]<=w){
-				d[i][j]=Math.max(value[i-1]+d[i-1][w-weight[i-1]],d[i-1][j]);
+			else if(weight[i-1]<=j){
+				d[i][j]=Math.max(value[i-1]+d[i-1][j-weight[i-1]],d[i-1][j]);
 			}
 			else{
 				d[i][j]=d[i-1][j];
